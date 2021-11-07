@@ -8,16 +8,19 @@ module Hangman
       @secret = secret
       @guesses = guesses
       @results = results
-      @gameover = false
       @rules = rules
+    end
+
+    def rules
+      @rules ||= Rules.new()
     end
 
     def max_turns
       @rules.turns
     end
 
-    def rules
-      @rules ||= Rules.new()
+    def gameover
+      @rules.gameover
     end
   end
 end
