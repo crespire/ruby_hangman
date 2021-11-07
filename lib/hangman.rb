@@ -15,3 +15,9 @@
     Word - handle matching and return feedback.
     Game - handle logic of game.
 =end
+
+require_relative 'game'
+require_relative 'rules'
+
+game = Hangman::Game.new
+p game.max_turns

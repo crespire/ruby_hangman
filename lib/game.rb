@@ -4,7 +4,7 @@
 module Hangman
   class Game
     attr_reader :secret, :guesses, :results, :rules
-    def initialize(secret: '', guesses: [], results: [], rules)
+    def initialize(secret: '', guesses: [], results: [], rules: Rules.new())
       @secret = secret
       @guesses = guesses
       @results = results
