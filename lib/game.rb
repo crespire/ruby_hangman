@@ -23,5 +23,9 @@ module Hangman
     def gameover?
       @rules.check_gameover(@guesses, @results)
     end
+
+    def make_secret
+      
+    end
   end
 end
