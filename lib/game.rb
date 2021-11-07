@@ -4,6 +4,7 @@
 module Hangman
   class Game
     attr_reader :secret, :guesses, :results, :rules
+
     def initialize(secret: '', guesses: [], results: [], rules: Rules.new())
       @secret = secret
       @guesses = guesses
@@ -19,8 +20,8 @@ module Hangman
       @rules.turns
     end
 
-    def gameover
-      @rules.gameover
+    def gameover?
+      @rules.check_gameover(@guesses, @results)
     end
   end
 end
