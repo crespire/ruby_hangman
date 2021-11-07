@@ -11,6 +11,14 @@ module Hangman
     end
 
     def make_secret_word
+      options = IO.readlines('5desk.txt', chomp: true)
+      selection = options.sample
+
+      until selection.length.between(5, 12) #hard code value for now, need to get this from options in the future
+        selection = options.sample
+      end
+
+      selection
     end
   end
 end
