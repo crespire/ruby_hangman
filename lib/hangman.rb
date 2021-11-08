@@ -15,6 +15,9 @@ p game.make_secret
 # secret
 p game.rules
 
+game2 = Hangman::Game.new
+p game2.make_secret
+
 =begin
 
 This file is where all the message calling goes. This is the structure we're shooting for.
