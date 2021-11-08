@@ -10,8 +10,11 @@ module Hangman
       @secret = nil
     end
 
-    def make_secret_word
+    def grab_secret_word
       @secret = IO.readlines('5desk.txt', chomp: true).filter { |w| w.length.between?(5, 12) }.sample.downcase
+    end
+
+    def input_secret_word
     end
   end
 end

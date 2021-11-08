@@ -27,7 +27,7 @@ module Hangman
 
     def make_secret
       secret
-      @secret.make_secret_word
+      @secret.grab_secret_word
     end
   end
 end
