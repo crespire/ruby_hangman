@@ -31,5 +31,12 @@ module Hangman
       @secret.grab_secret_word unless @secret.exists?
       @secret.exists?
     end
+
+    def play_round
+      # Logic to play round
+
+      # Display.render(secret, guesses, results)
+    end
+
   end
 end
