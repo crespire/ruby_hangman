@@ -1,12 +1,13 @@
 # hangman/lib/game.rb
-#frozen_string_literal: true
+# frozen_string_literal: true
 
 module Hangman
   class Game
     require_relative 'secret'
 
     attr_reader :guesses, :results, :rules
-    def initialize(secret: nil, guesses: [], results: [], rules: Rules.new())
+
+    def initialize(secret: nil, guesses: [], results: [], rules: Rules.new)
       @secret = secret
       @guesses = guesses
       @results = results

@@ -25,6 +25,7 @@ module Hangman
     end
 
     def input_secret_word
+      # Option to get input for secret word.
     end
   end
 end
