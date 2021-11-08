@@ -9,10 +9,11 @@ require_relative 'secret'
 game = Hangman::Game.new
 p game.max_turns
 p game.gameover?
-# p game.make_secret
-secret = Hangman::Secret.new
-secret.make_secret_word
-p secret
+p game.make_secret
+# secret = Hangman::Secret.new
+# secret.make_secret_word
+# secret
+p game.rules
 
 =begin
 

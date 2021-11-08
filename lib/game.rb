@@ -13,10 +13,6 @@ module Hangman
       @rules = rules
     end
 
-    def rules
-      @rules ||= Rules.new()
-    end
-
     def max_turns
       @rules.turns
     end
@@ -30,6 +26,7 @@ module Hangman
     end
 
     def make_secret
+      secret
       @secret.make_secret_word
     end
   end
