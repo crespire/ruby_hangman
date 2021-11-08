@@ -11,7 +11,7 @@ module Hangman
     end
 
     def make_secret_word
-      IO.readlines('5desk.txt', chomp: true).filter { |w| w.length.between?(5, 12) }.sample
+      @secret = IO.readlines('5desk.txt', chomp: true).filter { |w| w.length.between?(5, 12) }.sample
     end
   end
 end
