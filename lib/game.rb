@@ -28,9 +28,7 @@ module Hangman
     def make_secret
       secret
       @secret.grab_secret_word unless @secret.exists?
-      return true unless @secret.nil?
-
-      false
+      @secret.exists?
     end
   end
 end
