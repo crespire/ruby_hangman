@@ -19,8 +19,8 @@ module Hangman
     end
 
     def grab_secret_word
-      return nil unless File.exists?('5desk.txt')
-      
+      return nil unless File.exist?('5desk.txt')
+
       @secret = IO.readlines('5desk.txt', chomp: true).filter { |w| w.length.between?(5, 12) }.sample.downcase
     end
 
