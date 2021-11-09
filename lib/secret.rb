@@ -8,12 +8,12 @@ module Hangman
 
     def initialize(type: 'word')
       @type = type
-      @secret = nil
+      @secret = ''
       @rules = nil
     end
 
     def empty?
-      @secret.nil?
+      @secret.empty?
     end
 
     def reset

@@ -1,16 +1,16 @@
 require_relative 'game'
 require_relative 'rules'
 require_relative 'secret'
+require_relative 'player'
 
 rules = Hangman::Rules.new(turns: 4, length: [8, 12])
-game = Hangman::Game.new(rules: rules)
+player = Hangman::Player.new(name: "Test Robot")
+game = Hangman::Game.new(rules: rules, player: player)
 p game.max_turns
 p game.gameover?
 p game.make_secret
-# secret = Hangman::Secret.new
-# secret.make_secret_word
-# secret
 p game.rules
+game.play_round
 
 =begin
 
