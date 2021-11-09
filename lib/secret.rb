@@ -33,6 +33,10 @@ module Hangman
       true
     end
 
+    def compare(guess)
+      #compare guess to secret
+    end
+
     def input_secret_word
       # Option to get input for secret word. This is a TO_DO option.
     end
