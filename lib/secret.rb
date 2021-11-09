@@ -12,6 +12,8 @@ module Hangman
     end
 
     def empty?
+      return true if @secret.nil?
+
       @secret.empty?
     end
 
@@ -28,6 +30,7 @@ module Hangman
       return nil if @rules.nil?
 
       @secret = IO.readlines('5desk.txt', chomp: true).filter { |w| w.length.between?(@rules.min_length, @rules.max_length) }.sample.downcase
+      true
     end
 
     def input_secret_word
