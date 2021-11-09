@@ -28,6 +28,7 @@ module Hangman
 
     def make_secret
       secret
+      @secret.load_rules(@rules)
       @secret.grab_secret_word unless @secret.exists?
       @secret.exists?
     end

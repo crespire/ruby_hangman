@@ -12,7 +12,15 @@ module Hangman
     end
 
     def check_gameover(guesses, results)
-      return @turns == (guesses.length - results.length)
+      @turns == (guesses.length - results.length)
+    end
+
+    def min_length
+      length[0]
+    end
+
+    def max_length
+      length[1]
     end
   end
 end
