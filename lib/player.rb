@@ -20,5 +20,14 @@ module Hangman
       @name
     end
 
+    def get_yesno
+      valid = false
+      until valid
+        print "(y/n) "
+        result = gets.chomp
+        valid = ['y', 'n'].include?(result)
+      end
+      result
+    end
   end
 end
