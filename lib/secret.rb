@@ -2,7 +2,6 @@
 # frozen_string_literal: true
 
 module Hangman
-
   class Secret
     attr_reader :type, :secret
 
@@ -22,10 +21,6 @@ module Hangman
 
     def load_rules(rules)
       @rules = rules
-    end
-
-    def rules
-      @rules
     end
 
     def grab_secret_word
