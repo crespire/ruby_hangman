@@ -29,8 +29,8 @@ module Hangman
     def make_secret
       secret
       @secret.load_rules(@rules)
-      @secret.grab_secret_word unless @secret.exists?
-      @secret.exists?
+      @secret.grab_secret_word if @secret.empty?
+      !@secret.empty?
     end
 
     def play_round

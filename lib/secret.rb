@@ -12,7 +12,7 @@ module Hangman
       @rules = nil
     end
 
-    def exists?
+    def empty?
       @secret.nil?
     end
 
@@ -24,6 +24,10 @@ module Hangman
       @rules = rules
     end
 
+    def rules
+      @rules
+    end
+
     def grab_secret_word
       return nil unless File.exist?('5desk.txt')
 
@@ -31,7 +35,7 @@ module Hangman
     end
 
     def input_secret_word
-      # Option to get input for secret word.
+      # Option to get input for secret word. This is a TO_DO option.
     end
 
   end
