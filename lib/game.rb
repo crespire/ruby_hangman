@@ -23,10 +23,6 @@ module Hangman
       @rules.check_gameover(@guesses, @results)
     end
 
-    def secret
-      @secret ||= Secret.new
-    end
-
     def make_secret
       @secret.load_rules(@rules)
       @secret.grab_secret_word if @secret.empty?

@@ -8,7 +8,7 @@ module Hangman
     def initialize(type: 'word')
       @type = type
       @secret = ''
-      @rules = nil
+      @rules = rules
     end
 
     def empty?
@@ -25,6 +25,7 @@ module Hangman
 
     def grab_secret_word
       return nil unless File.exist?('5desk.txt')
+      return nil if @rules.nil?
 
       @secret = IO.readlines('5desk.txt', chomp: true).filter { |w| w.length.between?(@rules.min_length, @rules.max_length) }.sample.downcase
     end
