@@ -1,7 +1,3 @@
-=begin
-  See UML diagram for planning.
-=end
-
 require_relative 'game'
 require_relative 'rules'
 require_relative 'secret'

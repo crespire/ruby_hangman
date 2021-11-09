@@ -1,5 +1,5 @@
 # hangman/lib/rules.rb
-#frozen_string_literal: true
+# frozen_string_literal: true
 
 module Hangman
   class Rules
