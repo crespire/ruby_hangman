@@ -24,12 +24,13 @@ This file is where all the message calling goes. This is the structure we're sho
 
 exit = false
 until exit
-  rules = Hangman::Rules.new(turns: 8, length: [5,12])
-  game = Hangman::Game.new
   Ask user if they want to load from file?
     If yes
-      game.load_from_file
+      save = Save.new('filename')
+      save.load_from_file
+      game = Hangman::Game.new(Save.from_yaml)
     Otherwise
+      game = Hangman::Game.new
       game.make_secret
   until game.gameover?
     game.play_round
