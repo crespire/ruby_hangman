@@ -29,18 +29,22 @@ module Hangman
       !@secret.empty?
     end
 
+    def test_secret
+      @secret.test_set_word
+    end
+
     def play_round
       # Logic to play round
       welcome_msg
-      # Display.render(secret, guesses, results)
+      # Display.render(rules, guesses, results)
     end
 
     private
 
     def welcome_msg
       puts "Welcome to hangman, where you have to guess the secret word before it's too late!"
-      @player.get_name
-      puts "Okay, #{@player.get_name}, let's hope you have what it takes to save the man!"
+      @player.prompt_name
+      puts "Okay, #{@player.prompt_name}, let's hope you have what it takes to save the man!"
     end
   end
 end

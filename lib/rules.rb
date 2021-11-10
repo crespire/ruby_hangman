@@ -5,7 +5,7 @@ module Hangman
   class Rules
     attr_reader :turns, :length, :gameover
 
-    def initialize(turns: 8, length: [5, 12])
+    def initialize(turns: 7, length: [5, 12])
       @turns = turns
       @length = length
       @gameover = false

@@ -34,7 +34,6 @@ module Hangman
     end
 
     def compare(guesses)
-      #compare guess to secret
       # Returns the array of matched letters.
       results = ''
       guesses.chars.each do |guess|
@@ -47,6 +46,10 @@ module Hangman
 
     def input_secret_word
       # Option to get input for secret word. This is a TO_DO option.
+    end
+
+    def test_set_word
+      @secret = 'groupss'
     end
 
   end
