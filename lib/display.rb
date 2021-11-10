@@ -37,6 +37,9 @@ module Hangman
       guesses.each do |guess|
         next if results.include?(guess)
         # Draw the next body part
+        puts body_parts[body_index]
+        body_index += 1
+      end
     end
 
     def show_hits
