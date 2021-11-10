@@ -42,6 +42,5 @@ module Hangman
       @player.get_name
       puts "Okay, #{@player.get_name}, let's hope you have what it takes to save the man!"
     end
-
   end
 end

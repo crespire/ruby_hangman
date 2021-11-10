@@ -3,19 +3,22 @@
 
 module Hangman
   class Display
-    def initialize
+    def initialize(secret: '', guesses: [], results: [])
+      @secret = secret
+      @guesses = guesses
+      @results = results
     end
 
-    def render(secret: secret, guesses: guesses, results: results)
-      #Do stuff with these values. Remember they can empty!
+    def render(guesses:, results:)
+      # Do stuff with these values. Remember they can empty!
     end
 
     private
-    
-    def show_hangman(secret: secret, guesses: guesses, results: results)
+
+    def show_hangman
     end
 
-    def show_hits(secret: secret, guesses: guesses, results: results)
+    def show_hits
     end
-  end  
+  end
 end
