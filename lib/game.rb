@@ -5,7 +5,7 @@ module Hangman
   class Game
     require_relative 'secret'
 
-    attr_reader :guesses, :results, :rules
+    attr_reader :guesses, :results, :rules, :secret
 
     def initialize(secret: Secret.new, guesses: [], results: [], rules: Rules.new, player: Player.new)
       @secret = secret

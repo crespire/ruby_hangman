@@ -8,7 +8,7 @@ module Hangman
       @name = name
     end
 
-    def get_name
+    def prompt_name
       return @name unless @name.empty?
 
       valid = false
@@ -20,12 +20,12 @@ module Hangman
       @name
     end
 
-    def get_yesno
+    def prompt_yesno
       valid = false
       until valid
-        print "(y/n) "
+        print '(y/n) '
         result = gets.chomp
-        valid = ['y', 'n'].include?(result)
+        valid = %w[y n].include?(result)
       end
       result
     end

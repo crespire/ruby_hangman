@@ -8,7 +8,7 @@ module Hangman
     def initialize(type: 'word')
       @type = type
       @secret = ''
-      @rules = rules
+      @rules = nil
     end
 
     def empty?
@@ -37,8 +37,9 @@ module Hangman
       #compare guess to secret
       # Returns the array of matched letters.
       results = ''
-      @secret.each do |letter|
-        next unless guess.include?(letter)
+      guesses.chars.each do |guess|
+        next unless @secret.include?(guess)
+
         results += guess
       end
       results

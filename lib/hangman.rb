@@ -9,6 +9,8 @@ game = Hangman::Game.new(rules: rules, player: player)
 p game.max_turns
 p game.gameover?
 p game.make_secret
+p game.secret
+p game.secret.compare('axys')
 p game.rules
 game.play_round
 
