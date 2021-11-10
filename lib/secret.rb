@@ -11,6 +11,10 @@ module Hangman
       @rules = nil
     end
 
+    def to_s
+      @secret
+    end
+
     def empty?
       return true if @secret.nil?
 

@@ -3,16 +3,17 @@
 
 module Hangman
   class Display
-    def initialize(rules:)
+    def initialize(rules)
       @rules = rules
       @guesses = nil
       @results = nil
     end
 
-    def render(guesses:, results:)
+    def render(secret:, guesses:, results:)
       # Do stuff with these values. Remember they can empty!
       @guesses = guesses
       @results = results
+      @secret = secret
 
       show_hangman
       show_hits
@@ -23,26 +24,40 @@ module Hangman
     private
 
     def show_hangman
-      body_index = 0
-      body_parts = [
-        'O'.center(5),
-        '|'.center(5),
-        '/|'.center(5),
-        '/|\\'.center(5),
-        '|'.center(5),
-        '/'.center(5),
-        '\\'.center(5)
+      body_state = [
+        ' O   |',
+        " O   |\n |   |",
+        " O   |\n/|   |",
+        " O   |\n/|\\  |\n",
+        " O   |\n/|\\  |\n |   |",
+        " O   |\n/|\\  |\n |   |\n/    |",
+        " O   |\n/|\\  |\n |   |\n/ \\  |"
       ]
 
-      guesses.each do |guess|
-        next if results.include?(guess)
-        # Draw the next body part
-        puts body_parts[body_index]
-        body_index += 1
-      end
+      misses = @guesses.chars.difference(@results.chars)
+      body_index = misses.length - 1
+
+      puts " |---|"
+      puts body_state[body_index]
+      (4 - body_index).times { puts '     |' }
+      puts "-----|"
+
+      true
     end
 
     def show_hits
+      shown = ''
+      @secret.to_s.each_char do |c|
+        if @results.include?(c)
+          shown += c
+        else
+          shown += '_'
+        end
+        shown += ' '
+      end
+      puts shown
+
+      true
     end
   end
 end

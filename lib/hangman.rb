@@ -12,8 +12,10 @@ p game.gameover?
 p game.test_secret
 p game.secret
 display = Hangman::Display.new(rules)
-results = game.secret.compare('axys')
-display.render('axys', results)
+guesses = 'grasp'
+p results = game.secret.compare(guesses)
+p guesses.chars.difference(results.chars)
+display.render(secret: game.secret, guesses: guesses, results: results)
 # p game.rules
 # game.play_round
 
