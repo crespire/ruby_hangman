@@ -26,8 +26,13 @@ until exit
     Otherwise
       game = Hangman::Game.new
       game.make_secret
+  Display.render (initial render)
   until game.gameover?
     game.play_round
+      Player.get_guess
+      Add guess to guesses array
+      save result of Secret.compare(guesses)
+      Display.render
   game.after_round (ie, you saved the man!)
   Play Again?
     if not, set exit to true

@@ -33,8 +33,15 @@ module Hangman
       true
     end
 
-    def compare(guess)
+    def compare(guesses)
       #compare guess to secret
+      # Returns the array of matched letters.
+      results = ''
+      @secret.each do |letter|
+        next unless guess.include?(letter)
+        results += guess
+      end
+      results
     end
 
     def input_secret_word
