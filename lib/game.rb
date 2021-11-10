@@ -5,7 +5,8 @@ module Hangman
   class Game
     require_relative 'secret'
 
-    attr_reader :guesses, :results, :rules, :secret
+    attr_reader :rules, :secret
+    attr_accessor :guesses, :results
 
     def initialize(secret: Secret.new, guesses: [], results: [], rules: Rules.new, player: Player.new)
       @secret = secret
@@ -20,7 +21,7 @@ module Hangman
     end
 
     def gameover?
-      @rules.check_gameover(@guesses, @results)
+      @rules.check_gameover(secret: @secret, guesses: @guesses, results: @results)
     end
 
     def make_secret
@@ -33,13 +34,17 @@ module Hangman
       @secret.test_set_word
     end
 
-    def play_round
+    def play_round(display: Display.new(@rules))
       # Logic to play round
-      welcome_msg
-      # Display.render(rules, guesses, results)
-    end
+      display.render(@secret, @guesses, @results)
 
-    private
+      # if gameover? break.
+      # Player.get_guess
+      # Add guess to guesses array
+      #save result of Secret.compare(guesses)
+
+      
+    end
 
     def welcome_msg
       puts "Welcome to hangman, where you have to guess the secret word before it's too late!"

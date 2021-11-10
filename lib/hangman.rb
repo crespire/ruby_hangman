@@ -12,10 +12,11 @@ p game.gameover?
 p game.test_secret
 p game.secret
 display = Hangman::Display.new(rules)
-guesses = 'grasp'
-p results = game.secret.compare(guesses)
-p guesses.chars.difference(results.chars)
-display.render(secret: game.secret, guesses: guesses, results: results)
+game.guesses = 'groupxyz'
+p game.results = game.secret.compare(game.guesses)
+p game.guesses.chars.difference(game.results.chars)
+display.render(secret: game.secret, guesses: game.guesses, results: game.results)
+p game.gameover?
 # p game.rules
 # game.play_round
 
@@ -33,13 +34,9 @@ until exit
     Otherwise
       game = Hangman::Game.new
       game.make_secret
-  Display.render (initial render)
   until game.gameover?
+    game.welcome_msg
     game.play_round
-      Player.get_guess
-      Add guess to guesses array
-      save result of Secret.compare(guesses)
-      Display.render
   game.after_round (ie, you saved the man!)
   Play Again?
     if not, set exit to true

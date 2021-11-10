@@ -11,8 +11,11 @@ module Hangman
       @gameover = false
     end
 
-    def check_gameover(guesses, results)
-      @turns == (guesses.length - results.length)
+    def check_gameover(secret:, guesses:, results:)
+      return true if player_win?(secret, guesses, results)
+      return true if hangman?(guesses, results)
+
+      false
     end
 
     def min_length
@@ -21,6 +24,14 @@ module Hangman
 
     def max_length
       length[1]
+    end
+
+    def player_win?(secret, guesses, results)
+      results.length < @turns && secret.to_s.chars.all? { |c| results.include?(c) }
+    end
+
+    def hangman?(guesses, results)
+      @turns == (guesses.length - results.length)
     end
   end
 end

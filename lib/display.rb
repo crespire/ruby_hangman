@@ -17,6 +17,7 @@ module Hangman
 
       show_hangman
       show_hits
+      show_guesses
 
       true
     end
@@ -25,6 +26,7 @@ module Hangman
 
     def show_hangman
       body_state = [
+        '     |',
         ' O   |',
         " O   |\n |   |",
         " O   |\n/|   |",
@@ -34,13 +36,13 @@ module Hangman
         " O   |\n/|\\  |\n |   |\n/ \\  |"
       ]
 
-      misses = @guesses.chars.difference(@results.chars)
-      body_index = misses.length - 1
+      misses = @guesses.chars.difference(@secret.to_s.chars)
+      body_index = misses.length
 
-      puts " |---|"
+      puts ' |---|'
       puts body_state[body_index]
-      (4 - body_index).times { puts '     |' }
-      puts "-----|"
+      (5 - body_index).times { puts '     |' }
+      puts '-----|'
 
       true
     end
@@ -52,8 +54,13 @@ module Hangman
         shown += ' '
       end
       puts shown
-
       true
+    end
+
+    def show_guesses
+      print 'Guesses so far: '
+      @guesses.chars.each { |c| print "#{c} "}
+      print "\n"
     end
   end
 end
