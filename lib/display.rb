@@ -25,12 +25,12 @@ module Hangman
     def show_hangman
       body_index = 0
       body_parts = [
-        'O'.center(5)
-        '|'.center(5)
-        '/|'.center(5)
-        '/|\\'.center(5)
-        '|'.center(5)
-        '/'.center(5)
+        'O'.center(5),
+        '|'.center(5),
+        '/|'.center(5),
+        '/|\\'.center(5),
+        '|'.center(5),
+        '/'.center(5),
         '\\'.center(5)
       ]
 

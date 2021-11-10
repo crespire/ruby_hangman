@@ -2,6 +2,7 @@ require_relative 'game'
 require_relative 'rules'
 require_relative 'secret'
 require_relative 'player'
+require_relative 'display'
 
 rules = Hangman::Rules.new(turns: 7, length: [8, 12])
 player = Hangman::Player.new(name: "Test Robot")
@@ -10,9 +11,11 @@ p game.max_turns
 p game.gameover?
 p game.test_secret
 p game.secret
-p game.secret.compare('axys')
-p game.rules
-game.play_round
+display = Hangman::Display.new(rules)
+results = game.secret.compare('axys')
+display.render('axys', results)
+# p game.rules
+# game.play_round
 
 =begin
 
