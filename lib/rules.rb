@@ -12,7 +12,7 @@ module Hangman
     end
 
     def check_gameover(secret:, guesses:, results:)
-      return true if player_win?(secret, guesses, results)
+      return true if player_win?(secret, results)
       return true if hangman?(guesses, results)
 
       false
@@ -26,7 +26,7 @@ module Hangman
       length[1]
     end
 
-    def player_win?(secret, guesses, results)
+    def player_win?(secret, results)
       results.length < @turns && secret.to_s.chars.all? { |c| results.include?(c) }
     end
 
