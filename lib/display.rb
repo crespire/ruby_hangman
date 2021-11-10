@@ -48,11 +48,7 @@ module Hangman
     def show_hits
       shown = ''
       @secret.to_s.each_char do |c|
-        if @results.include?(c)
-          shown += c
-        else
-          shown += '_'
-        end
+        shown += @results.include?(c) ? c : '_'
         shown += ' '
       end
       puts shown
