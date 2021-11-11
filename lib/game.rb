@@ -14,6 +14,7 @@ module Hangman
       @results = results
       @rules = rules
       @player = player
+      @display = Display.new(@rules)
       @won = false
     end
 
@@ -35,9 +36,9 @@ module Hangman
       @secret.test_set_word
     end
 
-    def play_round(display: Display.new(@rules))
+    def play_round
       # Logic to play round
-      display.render(@secret, @guesses, @results)
+      @display.render(@secret, @guesses, @results)
 
       @guesses.push(@plaer.prompt_guess)
       @results = @secret.compare(guesses)
