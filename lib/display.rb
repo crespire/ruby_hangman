@@ -49,8 +49,6 @@ module Hangman
         7 => 3
       }
 
-      puts "body_index: #{body_index}, putting #{4 - display_adjust[body_index]} blanks"
-
       puts ' |---|'
       puts body_state[body_index]
       (4 - display_adjust[body_index]).times { puts '     |' }
