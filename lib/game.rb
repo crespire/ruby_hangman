@@ -44,17 +44,15 @@ module Hangman
 
     def play_round
       # Logic to play round
-      puts 'Displaying round'
       @display.render(secret: @secret, guesses: @guesses, results: @results)
 
       @guesses += @player.prompt_guess
       @results = @secret.compare(guesses)
-
-      @display.render(secret: @secret, guesses: @guesses, results: @results) unless @won
     end
 
     def after_round
       @won = @rules.player_win?(@secret, @guesses, @results)
+      @display.render(secret: @secret, guesses: @guesses, results: @results) unless @won
       puts @won ? 'Way to go!' : 'Better luck next time!'
     end
   end

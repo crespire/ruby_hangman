@@ -26,28 +26,19 @@ module Hangman
 
     def show_hangman
       body_state = [
-        '     |', # 0
-        ' O   |', # 1
-        " O   |\n |   |", # 2
-        " O   |\n/|   |", # 3
-        " O   |\n/|\\  |\n", # 4
-        " O   |\n/|\\  |\n |   |", # 5
-        " O   |\n/|\\  |\n |   |\n/    |", # 6
-        " O   |\n/|\\  |\n |   |\n/ \\  |" # 7
+        '     |',
+        ' O   |',
+        " O   |\n |   |",
+        " O   |\n/|   |",
+        " O   |\n/|\\  |",
+        " O   |\n/|\\  |\n |   |",
+        " O   |\n/|\\  |\n |   |\n/    |",
+        " O   |\n/|\\  |\n |   |\n/ \\  |"
       ]
 
       misses = @secret.misses(@guesses)
       body_index = misses.length
-      display_adjust = {
-        0 => 0,
-        1 => 0,
-        2 => 1,
-        3 => 1,
-        4 => 1,
-        5 => 2,
-        6 => 3,
-        7 => 3
-      }
+      display_adjust = [0, 0, 1, 1, 1, 2, 3, 3]
 
       puts ' |---|'
       puts body_state[body_index]
