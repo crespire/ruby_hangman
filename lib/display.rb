@@ -26,22 +26,34 @@ module Hangman
 
     def show_hangman
       body_state = [
-        '     |',
-        ' O   |',
-        " O   |\n |   |",
-        " O   |\n/|   |",
-        " O   |\n/|\\  |\n",
-        " O   |\n/|\\  |\n |   |",
-        " O   |\n/|\\  |\n |   |\n/    |",
-        " O   |\n/|\\  |\n |   |\n/ \\  |"
+        '     |', # 0
+        ' O   |', # 1
+        " O   |\n |   |", # 2
+        " O   |\n/|   |", # 3
+        " O   |\n/|\\  |\n", # 4
+        " O   |\n/|\\  |\n |   |", # 5
+        " O   |\n/|\\  |\n |   |\n/    |", # 6
+        " O   |\n/|\\  |\n |   |\n/ \\  |" # 7
       ]
 
       misses = @guesses.chars.difference(@secret.to_s.chars)
       body_index = misses.length
+      display_adjust = {
+        0 => 0,
+        1 => 0,
+        2 => 1,
+        3 => 1,
+        4 => 1,
+        5 => 2,
+        6 => 3,
+        7 => 3
+      }
+
+      puts "body_index: #{body_index}, putting #{4 - display_adjust[body_index]} blanks"
 
       puts ' |---|'
       puts body_state[body_index]
-      (5 - body_index).times { puts '     |' }
+      (4 - display_adjust[body_index]).times { puts '     |' }
       puts '-----|'
       true
     end
