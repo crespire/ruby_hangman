@@ -43,7 +43,6 @@ module Hangman
       puts body_state[body_index]
       (5 - body_index).times { puts '     |' }
       puts '-----|'
-
       true
     end
 
@@ -59,7 +58,7 @@ module Hangman
 
     def show_guesses
       print 'Guesses so far: '
-      @guesses.chars.each { |c| print "#{c} "}
+      @guesses.chars.each { |c| print "#{c} " }
       print "\n"
     end
   end
