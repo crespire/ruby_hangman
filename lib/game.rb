@@ -8,7 +8,7 @@ module Hangman
     attr_reader :rules, :secret
     attr_accessor :guesses, :results
 
-    def initialize(secret: Secret.new, guesses: [], results: [], rules: Rules.new, player: Player.new)
+    def initialize(secret: Secret.new, guesses: '', results: '', rules: Rules.new, player: Player.new)
       @secret = secret
       @guesses = guesses
       @results = results
@@ -38,9 +38,9 @@ module Hangman
 
     def play_round
       # Logic to play round
-      @display.render(@secret, @guesses, @results)
+      @display.render(secret: @secret, guesses: @guesses, results: @results)
 
-      @guesses.push(@plaer.prompt_guess)
+      @guesses += @player.prompt_guess
       @results = @secret.compare(guesses)
     end
 
