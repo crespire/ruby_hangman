@@ -58,6 +58,8 @@ module Hangman
     end
 
     def show_guesses
+      return if @guesses.empty?
+
       print 'Guesses so far: '
       @guesses.chars.each { |c| print "#{c} " }
       print "\n"
