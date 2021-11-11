@@ -52,6 +52,7 @@ until stop_program
   until game.gameover?
     game.play_round
   end
-  print "Exiting..."
+  puts game.won ? 'You won!' : 'Better luck next time!'
+  print 'Exiting...'
   stop_program = true
 end
