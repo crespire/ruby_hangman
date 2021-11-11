@@ -14,6 +14,7 @@ module Hangman
       @results = results
       @rules = rules
       @player = player
+      @won = false
     end
 
     def max_turns
@@ -38,12 +39,8 @@ module Hangman
       # Logic to play round
       display.render(@secret, @guesses, @results)
 
-      # if gameover? break.
-      # Player.get_guess
-      # Add guess to guesses array
-      #save result of Secret.compare(guesses)
-
-      
+      @guesses.push(@plaer.prompt_guess)
+      @results = @secret.compare(guesses)
     end
 
     def welcome_msg

@@ -29,5 +29,15 @@ module Hangman
       end
       result
     end
+
+    def prompt_guess
+      valid = false
+      until valid
+        print '(1 character) '
+        result = gets.chomp.downcase
+        valid = result.match(/[[:lower:]]/) && result.length == 1
+      end
+      result
+    end
   end
 end

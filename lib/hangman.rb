@@ -5,7 +5,7 @@ require_relative 'player'
 require_relative 'display'
 
 rules = Hangman::Rules.new(turns: 7, length: [8, 12])
-player = Hangman::Player.new(name: "Test Robot")
+player = Hangman::Player.new(name: 'Test Robot')
 game = Hangman::Game.new(rules: rules, player: player)
 p game.max_turns
 p game.gameover?
