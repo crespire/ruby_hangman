@@ -48,6 +48,10 @@ module Hangman
       results
     end
 
+    def misses(guesses)
+      guesses.chars.difference(@secret.to_s.chars)
+    end
+
     def input_secret_word
       # Option to get input for secret word. This is a TO_DO option.
     end

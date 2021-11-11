@@ -36,7 +36,7 @@ module Hangman
         " O   |\n/|\\  |\n |   |\n/ \\  |" # 7
       ]
 
-      misses = @guesses.chars.difference(@secret.to_s.chars)
+      misses = @secret.misses(@guesses)
       body_index = misses.length
       display_adjust = {
         0 => 0,

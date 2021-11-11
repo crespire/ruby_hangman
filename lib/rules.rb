@@ -3,16 +3,16 @@
 
 module Hangman
   class Rules
-    attr_reader :turns, :length, :gameover
+    attr_reader :turns, :length, :won
 
     def initialize(turns: 7, length: [5, 12])
       @turns = turns
       @length = length
-      @gameover = false
+      @won = false
     end
 
     def check_gameover(secret:, guesses:, results:)
-      return true if player_win?(secret, results)
+      return true if player_win?(secret, guesses, results)
       return true if hangman?(guesses, results)
 
       false
@@ -26,8 +26,9 @@ module Hangman
       length[1]
     end
 
-    def player_win?(secret, results)
-      results.length < @turns && secret.to_s.chars.all? { |c| results.include?(c) }
+    def player_win?(secret, guesses, results)
+      misses = secret.misses(guesses)
+      @won = misses.length < @turns && secret.to_s.chars.all? { |c| results.include?(c) }
     end
 
     def hangman?(guesses, results)
