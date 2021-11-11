@@ -5,7 +5,7 @@ module Hangman
   class Game
     require_relative 'secret'
 
-    attr_reader :rules, :secret
+    attr_reader :rules, :secret, :won
     attr_accessor :guesses, :results
 
     def initialize(secret: Secret.new, guesses: '', results: '', rules: Rules.new, player: Player.new)
@@ -42,6 +42,8 @@ module Hangman
 
       @guesses += @player.prompt_guess
       @results = @secret.compare(guesses)
+
+      @won = @rules.player_win?
     end
 
     def welcome_msg
