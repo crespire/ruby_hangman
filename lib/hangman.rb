@@ -50,11 +50,7 @@ until stop_program
   puts "Welcome to hangman, where you have to guess the secret word before it's too late!"
   print 'Would you like to continue from your last saved game?'
   ans = Hangman::Player.prompt_yesno
-  if ans == 'y'
-    game = Hangman::Save.load_from_file('save')
-  else
-    game = Hangman::Game.new
-  end
+  game = ans == 'y' ? Hangman::Save.load_from_file('save') : Hangman::Game.new
   game.setup
   game.play_round until game.gameover?
   game.after_round
