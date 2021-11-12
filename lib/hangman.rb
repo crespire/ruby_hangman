@@ -3,6 +3,7 @@ require_relative 'rules'
 require_relative 'secret'
 require_relative 'player'
 require_relative 'display'
+require_relative 'save'
 
 # rules = Hangman::Rules.new(turns: 7, length: [8, 12])
 # player = Hangman::Player.new(name: 'Test Robot')
@@ -50,6 +51,7 @@ until stop_program
   game.setup
   game.play_round until game.gameover?
   game.after_round
-  print 'Exiting...'
-  stop_program = true
+  print 'Would you like to play again?'
+  stop = Hangman::Player.prompt_yesno
+  stop_program = stop == 'n'
 end

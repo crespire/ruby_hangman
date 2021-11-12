@@ -3,18 +3,15 @@
 
 module Hangman
   class Game
-    require_relative 'secret'
+    attr_reader :rules, :secret, :won, :guesses, :results
 
-    attr_reader :rules, :secret, :won
-    attr_accessor :guesses, :results
-
-    def initialize(secret: Secret.new, guesses: '', results: '', rules: Rules.new, player: Player.new)
+    def initialize(secret: Secret.new, rules: Rules.new, player: Player.new, guesses: '', results: '')
       @secret = secret
-      @guesses = guesses
-      @results = results
       @rules = rules
       @player = player
       @display = Display.new(@rules)
+      @guesses = guesses
+      @results = results
       @won = false
     end
 
@@ -53,12 +50,18 @@ module Hangman
 
       @guesses += @player.prompt_guess
       @results = @secret.compare(guesses)
+
+      instance_variables.map do |var|
+        print "#{var}: "
+        p instance_variable_get(var)
+      end
+
     end
 
     def after_round
       @won = @rules.player_win?(@secret, @guesses, @results)
       @display.render(secret: @secret, guesses: @guesses, results: @results) unless @won
-      puts @won ? 'Way to go!' : 'Better luck next time!'
+      puts @won ? 'You got it! Way to go!' : "Better luck next time! The secret was '#{@secret}'."
     end
   end
 end

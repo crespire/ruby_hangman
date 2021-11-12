@@ -20,22 +20,22 @@ module Hangman
       @name
     end
 
-    def prompt_yesno
-      valid = false
-      until valid
-        print '(y/n) '
-        result = gets.chomp
-        valid = %w[y n].include?(result)
-      end
-      result
-    end
-
     def prompt_guess
       valid = false
       until valid
         print 'What is your guess? (1 character) '
         result = gets.chomp.downcase
         valid = result.match(/[[:lower:]]/) && result.length == 1
+      end
+      result
+    end
+
+    def self.prompt_yesno
+      valid = false
+      until valid
+        print ' (y/n) '
+        result = gets.chomp
+        valid = %w[y n].include?(result)
       end
       result
     end
