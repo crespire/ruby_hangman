@@ -35,7 +35,7 @@ module Hangman
 
     def welcome_msg
       @player.prompt_name if @player.name.empty?
-      puts "Okay, #{@player.name}, let's hope you have what it takes to save the man!"
+      @display.show_message { puts "Okay, #{@player.name}, let's hope you have what it takes to save the man!" }
     end
 
     def setup
@@ -50,7 +50,7 @@ module Hangman
       ans = @player.prompt_round_input
       if ans == 'save'
         Save.save_to_file('save', to_yaml)
-        print "Saved! You can't enter 'save' again for this round. Continue to guess?"
+        @display.show_message { print "Saved! You can't enter 'save' again for this round. Continue to guess?" }
         continue = Player.prompt_yesno
         exit if continue == 'n'
         ans = @player.prompt_guess until ans.length == 1
@@ -64,7 +64,7 @@ module Hangman
     def after_round
       @won = @rules.player_win?(@secret, @guesses, @results)
       @display.render(secret: @secret, guesses: @guesses, results: @results) unless @won
-      puts @won ? 'You got it! Way to go!' : "Better luck next time! The secret was '#{@secret}'."
+      @display.show_message { puts @won ? 'You got it! Way to go!' : "Maybe next time! The secret was '#{@secret}'." }
     end
 
     def to_yaml

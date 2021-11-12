@@ -22,8 +22,8 @@ module Hangman
       true
     end
 
-    def show_message
-      yield
+    def show_message(&block)
+      yield block
     end
 
     private
