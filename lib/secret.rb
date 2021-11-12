@@ -59,6 +59,5 @@ module Hangman
     def test_set_word
       @secret = 'groupss'
     end
-
   end
 end
