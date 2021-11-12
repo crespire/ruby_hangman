@@ -10,8 +10,6 @@ module Hangman
     end
 
     def prompt_name
-      return @name unless @name.empty?
-
       valid = false
       until valid
         print "What's your name? "

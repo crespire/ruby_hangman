@@ -34,8 +34,8 @@ module Hangman
     end
 
     def welcome_msg
-      @player.prompt_name
-      puts "Okay, #{@player.prompt_name}, let's hope you have what it takes to save the man!"
+      @player.prompt_name if @player.name.empty?
+      puts "Okay, #{@player.name}, let's hope you have what it takes to save the man!"
     end
 
     def setup
