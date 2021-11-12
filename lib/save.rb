@@ -19,5 +19,9 @@ module Hangman
     def self.save_to_file(filename, dump)
       File.open("#{filename}.yml", 'w') { |f| f.write(dump) }
     end
+
+    def self.load_from_file(filename)
+      data = YAML.load(File.read("#{filename}.yml"))
+    end
   end
 end

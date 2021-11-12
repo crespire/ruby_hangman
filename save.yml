@@ -13,9 +13,9 @@ player: !ruby/object:Hangman::Player
   name: Jim
 display: !ruby/object:Hangman::Display
   rules: *1
-  guesses: ab
-  results: ab
+  guesses: ablcseiou
+  results: abcio
   secret: *2
-guesses: ab
-results: ab
+guesses: ablcseiou
+results: abcio
 won: false
