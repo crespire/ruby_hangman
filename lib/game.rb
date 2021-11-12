@@ -43,11 +43,8 @@ module Hangman
     end
 
     def setup
-      # Ask to load from file here
-      loading = false
-
       welcome_msg
-      make_secret unless loading
+      make_secret if @secret.empty?
     end
 
     def play_round
