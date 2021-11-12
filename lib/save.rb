@@ -5,8 +5,7 @@ require 'yaml'
 
 module Hangman
   class Save
-    def initialize
-    end
+    def initialize; end
 
     def self.serialize(obj = {})
       instance_variables.map do |var|
@@ -21,7 +20,7 @@ module Hangman
     end
 
     def self.load_from_file(filename)
-      YAML.load(File.read("#{filename}.yml"))
+      YAML.safe_load(File.read("#{filename}.yml"), [Game, Rules, Secret, Player, Display], [], true)
     end
   end
 end
