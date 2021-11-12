@@ -42,6 +42,14 @@ module Hangman
       puts "Okay, #{@player.prompt_name}, let's hope you have what it takes to save the man!"
     end
 
+    def setup
+      # Ask to load from file here
+      loading = false
+
+      welcome_msg
+      make_secret unless loading
+    end
+
     def play_round
       # Logic to play round
       @display.render(secret: @secret, guesses: @guesses, results: @results)

@@ -1,5 +1,5 @@
 # hangman/lib/display.rb
-# frozen_string_literals: true
+# frozen_string_literal: true
 
 module Hangman
   class Display

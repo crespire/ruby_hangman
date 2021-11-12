@@ -47,8 +47,7 @@ until exit
 stop_program = false
 until stop_program
   game = Hangman::Game.new
-  game.make_secret
-  game.welcome_msg
+  game.setup
   game.play_round until game.gameover?
   game.after_round
   print 'Exiting...'
