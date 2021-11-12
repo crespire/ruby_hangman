@@ -11,3 +11,4 @@ An interactive version of this project is available on Replit at https://replit.
   *  This would require moving saves to their own dir.
   *  Then you could read the dir, output the files and ask the user to pick one.
   *  Would also have to update save logic so user could provide a name for each file.
+  *  Clean up the display messaging in the Game class. For brevity, I wrapped it in a quick Display class method that takes a block.
