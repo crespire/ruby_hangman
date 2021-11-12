@@ -22,6 +22,10 @@ module Hangman
       true
     end
 
+    def show_message
+      yield
+    end
+
     private
 
     def show_hangman
