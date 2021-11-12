@@ -33,7 +33,7 @@ module Hangman
       return nil unless File.exist?('5desk.txt')
       return nil if @rules.nil?
 
-      @secret = IO.readlines('5desk.txt', chomp: true).filter { |w| w.length.between?(@rules.min_length, @rules.max_length) }.sample.downcase
+      @secret = IO.readlines('5desk.txt', chomp: true).select { |w| w.length.between?(@rules.min_length, @rules.max_length) }.sample.downcase
       true
     end
 
@@ -49,7 +49,7 @@ module Hangman
     end
 
     def misses(guesses)
-      guesses.chars.difference(@secret.to_s.chars)
+      guesses.chars - @secret.to_s.chars
     end
 
     def input_secret_word
