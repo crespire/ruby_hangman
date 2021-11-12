@@ -34,7 +34,6 @@ module Hangman
     end
 
     def welcome_msg
-      puts "Welcome to hangman, where you have to guess the secret word before it's too late!"
       @player.prompt_name
       puts "Okay, #{@player.prompt_name}, let's hope you have what it takes to save the man!"
     end

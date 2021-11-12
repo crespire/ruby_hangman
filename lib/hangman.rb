@@ -47,6 +47,7 @@ until exit
 
 stop_program = false
 until stop_program
+  puts "Welcome to hangman, where you have to guess the secret word before it's too late!"
   game = Hangman::Game.new
   game.setup
   game.play_round until game.gameover?
