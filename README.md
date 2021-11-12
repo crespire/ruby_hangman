@@ -2,6 +2,7 @@
 Ruby assignment from The Odin Project.
 
 The source code for this project is available on GitHub at https://github.com/crespire/hangman
+
 An interactive version of this project is available on Replit at https://replit.com/@crespire/hangman
 
 # TODO
