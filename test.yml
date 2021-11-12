@@ -1,0 +1,21 @@
+--- !ruby/object:Hangman::Game
+rules: &1 !ruby/object:Hangman::Rules
+  turns: 7
+  length:
+  - 5
+  - 12
+  won: false
+secret: &2 !ruby/object:Hangman::Secret
+  type: word
+  secret: sooty
+  rules: *1
+player: !ruby/object:Hangman::Player
+  name: a
+display: !ruby/object:Hangman::Display
+  rules: *1
+  guesses: aaaaaaa
+  results: ''
+  secret: *2
+guesses: aaaaaaa
+results: ''
+won: false

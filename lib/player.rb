@@ -20,11 +20,13 @@ module Hangman
       @name
     end
 
-    def prompt_guess
+    def prompt_round_input
       valid = false
       until valid
-        print 'What is your guess? (1 character) '
+        print "You can enter 'save' to save your game or input a guess: (1 character) "
         result = gets.chomp.downcase
+        return result if result == 'save'
+
         valid = result.match(/[[:lower:]]/) && result.length == 1
       end
       result

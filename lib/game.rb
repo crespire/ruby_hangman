@@ -5,9 +5,9 @@ module Hangman
   class Game
     attr_reader :rules, :secret, :won, :guesses, :results
 
-    def initialize(secret: Secret.new, rules: Rules.new, player: Player.new, guesses: '', results: '')
-      @secret = secret
+    def initialize(rules: Rules.new, secret: Secret.new, player: Player.new, guesses: '', results: '')
       @rules = rules
+      @secret = secret
       @player = player
       @display = Display.new(@rules)
       @guesses = guesses
@@ -48,20 +48,28 @@ module Hangman
       # Logic to play round
       @display.render(secret: @secret, guesses: @guesses, results: @results)
 
-      @guesses += @player.prompt_guess
-      @results = @secret.compare(guesses)
-
-      instance_variables.map do |var|
-        print "#{var}: "
-        p instance_variable_get(var)
+      ans = @player.prompt_round_input
+      if ans == 'save'
+        Save.save_to_file('save', to_yaml)
+        print "Saved! You can't enter 'save' again for this round. Continue to guess?"
+        continue = Player.prompt_yesno
+        exit if continue == 'n'
+        ans = @player.prompt_guess until ans.length == 1
+      else
+        @guesses += ans
       end
 
+      @results = @secret.compare(guesses)
     end
 
     def after_round
       @won = @rules.player_win?(@secret, @guesses, @results)
       @display.render(secret: @secret, guesses: @guesses, results: @results) unless @won
       puts @won ? 'You got it! Way to go!' : "Better luck next time! The secret was '#{@secret}'."
+    end
+
+    def to_yaml
+      Save.serialize(self)
     end
   end
 end
