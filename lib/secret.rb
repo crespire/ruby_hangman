@@ -55,9 +55,5 @@ module Hangman
     def input_secret_word
       # Option to get input for secret word. This is a TO_DO option.
     end
-
-    def test_set_word
-      @secret = 'groupss'
-    end
   end
 end
