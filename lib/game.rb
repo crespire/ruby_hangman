@@ -64,7 +64,8 @@ module Hangman
     def after_round
       @won = @rules.player_win?(@secret, @guesses, @results)
       @display.render(secret: @secret, guesses: @guesses, results: @results) unless @won
-      @display.show_message { puts @won ? 'You got it! Way to go!' : "Maybe next time! The secret was '#{@secret}'." }
+      @display.show_message { print "The secret was '#{@secret}'... " }
+      @display.show_message { puts @won ? 'you got it! Way to go!' : 'maybe next time!' }
     end
 
     def to_yaml
